@@ -1,6 +1,7 @@
-from rosalind import count_dna_nucleotides
+from rosalind import transcribe
 
 
 if __name__ == '__main__':
-    count_dna_nucleotides("AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC")
+    print(transcribe("GATGGAACTTGACTACGTAAATT"))
+
 
