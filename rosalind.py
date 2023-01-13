@@ -9,3 +9,20 @@ def transcribe(dna):
     """Given: A DNA string t
     Return: The transcribed RNA string of t"""
     return dna.replace('T', 'U')
+
+
+def reverse_complement(dna):
+    """Given: A DNA string s of length at most 1000 bp.
+    Return: The reverse complement sc of s."""
+    complement = ""
+    for nucleotide in dna:
+        if nucleotide == "A":
+            complement += "T"
+        elif nucleotide == "T":
+            complement += "A"
+        elif nucleotide == "C":
+            complement += "G"
+        elif nucleotide == "G":
+            complement += "C"
+    return complement[::-1]
+
