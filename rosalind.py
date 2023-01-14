@@ -26,3 +26,13 @@ def reverse_complement(dna):
             complement += "C"
     return complement[::-1]
 
+
+def rabbits(n, k):
+    """Return: The total number of rabbit pairs that will be present after n months,
+    if we begin with 1 pair and in each generation, every pair of reproduction-age rabbits produces a litter of k
+    rabbit pairs (instead of only 1 pair)."""
+    rabbits = [1, 1]
+    while len(rabbits) < n:
+        rabbits.append(rabbits[-1] + rabbits[-2] * k)
+    return rabbits[-1]
+
