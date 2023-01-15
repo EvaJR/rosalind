@@ -36,3 +36,7 @@ def rabbits(n, k):
         rabbits.append(rabbits[-1] + rabbits[-2] * k)
     return rabbits[-1]
 
+
+def gc_content(dna):
+    """returns the gc content of a dna string as a percentage"""
+    return (dna.count('G') + dna.count('C')) / len(dna) * 100
