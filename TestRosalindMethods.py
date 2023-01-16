@@ -3,6 +3,7 @@ from rosalind import reverse_complement
 from rosalind import transcribe
 from rosalind import rabbits
 from rosalind import gc_content
+from rosalind import hamming_distance
 from Bio import SeqIO
 
 
@@ -26,6 +27,12 @@ class TestRosalindMethods(unittest.TestCase):
                 if gc > max:
                     max = gc
         self.assertAlmostEqual(60.919540, max, delta=0.001)
+
+    def test_hamming_distance(self):
+        with open("hamming_distance.txt") as file:
+            s = file.readline().strip()
+            t = file.readline().strip()
+            self.assertEqual(7, hamming_distance(s, t))
 
 
 if __name__ == '__main__':

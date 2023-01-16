@@ -40,3 +40,14 @@ def rabbits(n, k):
 def gc_content(dna):
     """returns the gc content of a dna string as a percentage"""
     return (dna.count('G') + dna.count('C')) / len(dna) * 100
+
+
+def hamming_distance(s, t):
+    """Given: Two DNA strings s and t of equal length (not exceeding 1 kbp).
+    Return: The Hamming distance dH(s,t)."""
+    assert(len(s) == len(t))
+    distance = 0
+    for i in range(len(s)):
+        if s[i] != t[i]:
+            distance += 1
+    return distance
