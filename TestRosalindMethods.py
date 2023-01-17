@@ -4,6 +4,7 @@ from rosalind import transcribe
 from rosalind import rabbits
 from rosalind import gc_content
 from rosalind import hamming_distance
+from rosalind import translate
 from Bio import SeqIO
 
 
@@ -33,6 +34,9 @@ class TestRosalindMethods(unittest.TestCase):
             s = file.readline().strip()
             t = file.readline().strip()
             self.assertEqual(7, hamming_distance(s, t))
+
+    def test_translate(self):
+        self.assertEqual("MAMAPRTEINSTRING", translate("AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"))
 
 
 if __name__ == '__main__':
