@@ -82,3 +82,14 @@ def translate(rna):
         else:
             protein += codon
     return protein
+
+def motif_finding(s, t):
+    """Given: Two DNA strings s and t
+    Return: All locations of t as a substring of s."""
+    locations = []
+    motif_length = len(t)
+    for i in range(0, len(s) - motif_length):
+        if s[i:i+motif_length] == t:
+            locations.append(i+1)
+    return locations
+

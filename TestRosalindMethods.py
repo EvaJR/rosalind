@@ -5,6 +5,7 @@ from rosalind import rabbits
 from rosalind import gc_content
 from rosalind import hamming_distance
 from rosalind import translate
+from rosalind import motif_finding
 from Bio import SeqIO
 
 
@@ -37,6 +38,12 @@ class TestRosalindMethods(unittest.TestCase):
 
     def test_translate(self):
         self.assertEqual("MAMAPRTEINSTRING", translate("AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA"))
+
+    def test_motif_finding(self):
+        with open("motif_finding.txt", "r") as f:
+            s = f.readline()
+            t = f.readline()
+            self.assertEqual([2, 4, 10], motif_finding(s, t))
 
 
 if __name__ == '__main__':
