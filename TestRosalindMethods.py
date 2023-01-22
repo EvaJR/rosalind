@@ -6,6 +6,7 @@ from rosalind import gc_content
 from rosalind import hamming_distance
 from rosalind import translate
 from rosalind import motif_finding
+from rosalind import consensus
 from Bio import SeqIO
 
 
@@ -44,6 +45,15 @@ class TestRosalindMethods(unittest.TestCase):
             s = f.readline()
             t = f.readline()
             self.assertEqual([2, 4, 10], motif_finding(s, t))
+
+    def test_consensus(self):
+        with open("consensus.txt") as handle:
+            matrix = []
+            for record in SeqIO.parse(handle, "fasta"):
+                matrix.append(record.seq)
+
+            self.assertEqual("ATGCAACT", consensus(matrix))
+
 
 
 if __name__ == '__main__':

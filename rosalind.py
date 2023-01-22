@@ -83,6 +83,7 @@ def translate(rna):
             protein += codon
     return protein
 
+
 def motif_finding(s, t):
     """Given: Two DNA strings s and t
     Return: All locations of t as a substring of s."""
@@ -93,3 +94,21 @@ def motif_finding(s, t):
             locations.append(i+1)
     return locations
 
+
+def consensus(matrix):
+    consensus = ""
+    nucleotides = "ACGT"
+    transposed = [list(i) for i in zip(*matrix)]
+    profile = [[], [], [], []] # A, C, G, T counts at each position
+    for position in transposed:
+        A = position.count('A')
+        C = position.count('C')
+        G = position.count('G')
+        T = position.count('T')
+        profile[0].append(A)
+        profile[1].append(C)
+        profile[2].append(G)
+        profile[3].append(T)
+        highest_count = max(A, C, G, T)
+        consensus += (nucleotides[[A, C, G, T].index(highest_count)])
+    return consensus
